@@ -1,0 +1,57 @@
+language: java
+jdk:
+  - openjdk8
+branches:
+  only:
+    - master
+ 
+# Travis CI 서버의 Home
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.gradle'
+     
+script: "./gradlew clean build"
+
+before_install:
+ - chmod +x gradlew
+ 
+  
+# CI 실행 완료시 메일로 알람
+notifications:
+  email:
+    recipients:
+      - rldnddl87@gmail.com
+      
+before_deploy:
+  - zip -r spring-webservice *
+  - mkdir -p deploy
+  - mv spring-webservice.zip deploy/spring-webservice.zip
+        
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+    bucket: rldnddl87-spring-webservice-deploy # aws s3 bucket
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: public_read
+    local_dir: deploy # before_deploy에서 생성된 디렉토리
+    wait-until-deployed: true
+    on:
+      repo: rldnddl87/spring-webservice
+      branch: master 
+  
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+    bucket: rldnddl87-spring-webservice-deploy # aws s3 bucket
+    key: spring-webservice.zip
+    bundle_type: zip
+    application: spring-webservice
+    deployment_group: spring-webservice-deploy-group
+    region: ap-northeast-2
+    wait-until-deployed: true
+    on:
+      repo: rldnddl87/spring-webservice
+      branch: master
