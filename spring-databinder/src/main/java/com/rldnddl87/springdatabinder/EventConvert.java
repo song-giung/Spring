@@ -2,9 +2,12 @@ package com.rldnddl87.springdatabinder;
 
 
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
+
 
 public class EventConvert  {
 
+    @Component
     public static class StringToEventConverter implements Converter<String, Event>{
         @Override
         public Event convert(String source) {
@@ -13,6 +16,7 @@ public class EventConvert  {
         }
     }
 
+    @Component
     public static class EventToStringConverter implements Converter<Event, String>{
 
         @Override
