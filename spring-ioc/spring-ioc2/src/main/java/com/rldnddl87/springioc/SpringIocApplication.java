@@ -16,8 +16,7 @@ import java.util.Arrays;
 public class SpringIocApplication {
 
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class)
-                ;
+        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         String[] beanDefinitionNames = context.getBeanDefinitionNames();
         System.out.println(Arrays.toString(beanDefinitionNames));
 

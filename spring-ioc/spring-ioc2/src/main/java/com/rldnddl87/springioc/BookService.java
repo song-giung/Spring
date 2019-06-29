@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 public class BookService {
 
 
+    @Autowired
     BookRepository bookRepository;
 
     public void setBookRepository(BookRepository bookRepository) {

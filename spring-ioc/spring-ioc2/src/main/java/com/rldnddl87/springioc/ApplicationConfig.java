@@ -13,8 +13,6 @@ public class ApplicationConfig {
 
     @Bean
     public BookService bookService() {
-        BookService bookservice = new BookService();
-        bookservice.setBookRepository((bookRepository()));
-        return bookservice;
+        return new BookService();
     }
 }
