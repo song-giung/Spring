@@ -2,8 +2,9 @@ package com.rldnddl87.springioc;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class BookService {
 
 
@@ -13,4 +14,6 @@ public class BookService {
     public void setBookRepository(BookRepository bookRepository) {
        this.bookRepository = bookRepository;
     }
+
+
 }
