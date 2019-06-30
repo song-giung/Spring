@@ -18,14 +18,16 @@ public class AppRunner implements ApplicationRunner {
     @Autowired
     MessageSource messageSource;
 
+
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-       System.out.println(messageSource.getClass());
-       //class org.springframework.context.support.ResourceBundleMessageSource
+        while(true) {
+            System.out.println(messageSource.getMessage("greeting", new String[]{"rldnd"}, Locale.KOREA));
+            System.out.println(messageSource.getMessage("greeting", new String[]{"rldnd"}, Locale.getDefault()));
+            Thread.sleep(1000l);
+        }
 
-
-       System.out.println(messageSource.getMessage("greeting", new String[] {"rldnd"}, Locale.KOREA));
-       System.out.println(messageSource.getMessage("greeting", new String[] {"rldnd"}, Locale.getDefault()));
     }
 }
