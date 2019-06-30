@@ -8,5 +8,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class Proto {
 
+    //Proto타입이 Singleton타입을 참조하는 것은 문제가 없다.
+    @Autowired
+    Single single;
+
 
 }
