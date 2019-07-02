@@ -5,27 +5,33 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.BeanPropertyBindingResult;
+import org.springframework.validation.Errors;
+
+import java.util.Arrays;
 
 @Component
 public class AppRunner implements ApplicationRunner {
 
 
-    @Autowired
-    ApplicationContext resourceLoader;
-    //ApplicationContext resourceLoader; 가능~
-
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println(resourceLoader.getClass());
+       Event event = new Event();
+       EventValidator eventValidator = new EventValidator();
+       Errors errors = new BeanPropertyBindingResult(event, "event");
 
-        Resource resource = resourceLoader.getResource("classpath:test.txt");
-        System.out.println(resource.getClass());
+       eventValidator.validate(event,errors);
 
+       System.out.println(errors.hasErrors());
 
-        System.out.println(resource.exists());
-        System.out.println(resource.getDescription());
+       errors.getAllErrors().forEach(e -> {
+           System.out.println("===error code===");
+
+           Arrays.stream(e.getCodes()).forEach(System.out::println);
+           System.out.println(e.getDefaultMessage());
+       });
+
 
     }
 }
