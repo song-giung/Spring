@@ -3,7 +3,10 @@ package com.rldnddl87.httpmessegeconverter.springhttpmessageconverter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
 
+
+@XmlRootElement
 @Entity
 public class Person {
     @Id

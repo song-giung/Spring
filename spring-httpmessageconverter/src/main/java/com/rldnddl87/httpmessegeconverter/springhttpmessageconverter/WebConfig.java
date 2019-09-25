@@ -1,7 +1,9 @@
 package com.rldnddl87.httpmessegeconverter.springhttpmessageconverter;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
@@ -29,4 +31,16 @@ public class WebConfig implements WebMvcConfigurer {
     /**
      * 제일 좋은 방식은 의존성을 통해 추가하는 것이다.(그레들 or 메이븐 사용)
      * */
+
+
+    /**
+     * xml 컨버터 위해 추가
+     * */
+    @Bean
+    public Jaxb2Marshaller jaxb2Marshaller() {
+        Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
+        jaxb2Marshaller.setPackagesToScan(Person.class.getPackage().getName());
+        return jaxb2Marshaller;
+    }
+
 }
