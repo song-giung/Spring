@@ -1,0 +1,35 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.7.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.pdfRead'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile group: 'net.sourceforge.tess4j', name: 'tess4j', version: '4.4.0'
+    compile group: 'net.java.dev.jna', name: 'jna', version: '5.4.0'
+    compile group: 'com.github.jai-imageio', name: 'jai-imageio-core', version: '1.4.0'
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    compile group: 'org.apache.pdfbox', name: 'pdfbox', version: '2.0.16'
+    compile group: 'net.sf.cssbox', name: 'cssbox', version: '4.15'
+    compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13.1'
+}

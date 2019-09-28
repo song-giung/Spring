@@ -1,0 +1,18 @@
+
+.content {
+    margin:70px auto;
+    width: 30%;
+}
+
+.manual {
+    margin: auto;
+    width: 60%
+}
+
+#result {
+    margin-top: 30px;
+}
+
+.innerContent {
+    margin-left: 25px;
+}

@@ -1,0 +1,12 @@
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 500MB
+      max-request-size: 500MB
+
+
+save:
+  folder: c:/uploads/doc
+tesdata:
+  folder: c:/uploads/tesdata
