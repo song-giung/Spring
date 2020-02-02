@@ -2,14 +2,13 @@ package com.admin.springbootadmin.repository;
 
 import com.admin.springbootadmin.SpringBootAdminApplicationTests;
 import com.admin.springbootadmin.model.entity.Category;
+import com.admin.springbootadmin.model.enumClass.CategoryType;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
-
-import static org.junit.Assert.*;
 
 public class CategoryRepositoryTest extends SpringBootAdminApplicationTests {
 
@@ -25,7 +24,7 @@ public class CategoryRepositoryTest extends SpringBootAdminApplicationTests {
 
         Category category = new Category();
         category.setTitle(title);
-        category.setType(type);
+        category.setType(CategoryType.COMPUTER);
         category.setCreatedAt(createdAt);
         category.setCreatedBy(createdBy);
 
@@ -37,7 +36,7 @@ public class CategoryRepositoryTest extends SpringBootAdminApplicationTests {
 
     @Test
     public void read() {
-        Optional<Category> category = categoryRepository.findByType("COMPUTER");
+        Optional<Category> category = categoryRepository.findByType(CategoryType.COMPUTER);
 
         if(category.isPresent()) {
             System.out.println(category.get().getType());

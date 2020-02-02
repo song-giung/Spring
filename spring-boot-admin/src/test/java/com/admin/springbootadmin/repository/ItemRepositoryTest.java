@@ -2,6 +2,7 @@ package com.admin.springbootadmin.repository;
 
 import com.admin.springbootadmin.SpringBootAdminApplicationTests;
 import com.admin.springbootadmin.model.entity.Item;
+import com.admin.springbootadmin.model.enumClass.ItemStatus;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class ItemRepositoryTest extends SpringBootAdminApplicationTests {
 
 
         Item item = new Item();
-        item.setStatus("UNREGISTERED");
+        item.setStatus(ItemStatus.UNREGISTERED);
         item.setName("삼성 노트북");
         item.setTitle("Samsung artBook");
         item.setContent("2019년형 노트북 입니다.");

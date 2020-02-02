@@ -2,6 +2,8 @@ package com.admin.springbootadmin.repository;
 
 import com.admin.springbootadmin.SpringBootAdminApplicationTests;
 import com.admin.springbootadmin.model.entity.AdminUser;
+import com.admin.springbootadmin.model.enumClass.AdminUserRole;
+import com.admin.springbootadmin.model.enumClass.UserStatus;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +23,8 @@ public class AdminUserRepositoryTest extends SpringBootAdminApplicationTests {
 
         adminUser.setAccount("adminUser02");
         adminUser.setPassword("adminUser02");
-        adminUser.setStatus("registered");
-        adminUser.setRole("SUPER");
+        adminUser.setStatus(UserStatus.REGISTERED);
+        adminUser.setRole(AdminUserRole.SUPER);
         /*adminUser.setCreatedAt(LocalDateTime.now());
         adminUser.setCreatedBy("admin");*/
 

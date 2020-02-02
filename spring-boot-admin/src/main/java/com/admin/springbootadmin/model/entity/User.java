@@ -1,5 +1,6 @@
 package com.admin.springbootadmin.model.entity;
 
+import com.admin.springbootadmin.model.enumClass.UserStatus;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.springframework.data.annotation.CreatedBy;
@@ -35,7 +36,8 @@ public class User {
 
     private String password;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private UserStatus status; // 항상 고정된 값을 사용 REGISTERED // UNREGISTERED // WAITING -> ENUM(열거형)으로 관리
 
     private String email;
 

@@ -2,6 +2,7 @@ package com.admin.springbootadmin.repository;
 
 import com.admin.springbootadmin.SpringBootAdminApplicationTests;
 import com.admin.springbootadmin.model.entity.User;
+import com.admin.springbootadmin.model.enumClass.UserStatus;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class UserRepositoryTest extends SpringBootAdminApplicationTests {
 
         user.setAccount(account);
         user.setPassword(password);
-        user.setStatus(status);
+        user.setStatus(UserStatus.REGISTERED);
         user.setEmail(email);
         user.setPhoneNumber(phoneNumber);
         user.setRegisteredAt(registeredAt);

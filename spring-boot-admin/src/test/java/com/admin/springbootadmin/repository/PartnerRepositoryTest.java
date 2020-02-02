@@ -2,6 +2,7 @@ package com.admin.springbootadmin.repository;
 
 import com.admin.springbootadmin.SpringBootAdminApplicationTests;
 import com.admin.springbootadmin.model.entity.Partner;
+import com.admin.springbootadmin.model.enumClass.PartnerStatus;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class PartnerRepositoryTest extends SpringBootAdminApplicationTests {
 
         Partner partner = new Partner();
         partner.setName(name);
-        partner.setStatus(status);
+        partner.setStatus(PartnerStatus.REGISTERED);
         partner.setAddress(address);
         partner.setCallCenter(callCenter);
         partner.setPartnerNumber(partnerNumber);

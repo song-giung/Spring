@@ -1,6 +1,8 @@
 package com.admin.springbootadmin.model.entity;
 
 
+import com.admin.springbootadmin.model.enumClass.AdminUserRole;
+import com.admin.springbootadmin.model.enumClass.UserStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,9 +34,11 @@ public class AdminUser {
 
     private String password;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private UserStatus status;
 
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private AdminUserRole role;
 
     private LocalDateTime lastLoginAt;
 

@@ -1,8 +1,10 @@
 package com.admin.springbootadmin.model.entity;
 
+import com.admin.springbootadmin.model.enumClass.OrderStatus;
+import com.admin.springbootadmin.model.enumClass.OrderType;
+import com.admin.springbootadmin.model.enumClass.PaymentType;
 import lombok.*;
 import lombok.experimental.Accessors;
-import org.hibernate.annotations.Fetch;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -28,15 +30,18 @@ public class OrderGroup {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
 
-    private String orderType; //주문의 형태 일괄/개별
+    @Enumerated(EnumType.STRING)
+    private OrderType orderType; //주문의 형태 일괄/개별
 
     private String revAddress;
 
     private String revName;
 
-    private String paymentType;
+    @Enumerated(EnumType.STRING)
+    private PaymentType paymentType;
 
     private BigDecimal totalPrice;
 

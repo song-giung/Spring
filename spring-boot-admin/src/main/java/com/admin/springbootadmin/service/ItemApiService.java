@@ -7,21 +7,23 @@ import com.admin.springbootadmin.model.network.request.ItemApiRequest;
 import com.admin.springbootadmin.model.network.response.ItemApiResponse;
 import com.admin.springbootadmin.repository.ItemRepository;
 import com.admin.springbootadmin.repository.PartnerRepository;
+import com.fasterxml.jackson.databind.ser.Serializers;
 import net.bytebuddy.description.NamedElement;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
-public class ItemApiService implements CRUDInterface<ItemApiRequest, ItemApiResponse> {
+public class ItemApiService extends BaseService<ItemApiRequest, ItemApiResponse, Item> {
 
     @Autowired
     private PartnerRepository partnerRepository;
-
-    @Autowired
-    private ItemRepository itemRepository;
 
     @Override
     public Header<ItemApiResponse> create(Header<ItemApiRequest> request) {
@@ -39,24 +41,24 @@ public class ItemApiService implements CRUDInterface<ItemApiRequest, ItemApiResp
                 .partner(partnerRepository.getOne(body.getPartnerId()))
                 .build();
 
-        Item newItem = itemRepository.save(item);
+        Item newItem = baseRespository.save(item);
 
-        return response(newItem);
+        return Header.OK(response(newItem));
     }
 
     @Override
     public Header<ItemApiResponse> read(Long id) {
 
-        Optional<Item> optionalItem = itemRepository.findById(id);
+        Optional<Item> optionalItem = baseRespository.findById(id);
 
-        return optionalItem.map(item -> response(item)).orElseGet(() ->Header.ERROR("데이터 없음"));
+        return optionalItem.map(item -> Header.OK(response(item))).orElseGet(() ->Header.ERROR("데이터 없음"));
     }
 
     @Override
     public Header<ItemApiResponse> update(Header<ItemApiRequest> request) {
         ItemApiRequest itemApiRequest = request.getData();
 
-        Optional<Item> optionalItem = itemRepository.findById(itemApiRequest.getId());
+        Optional<Item> optionalItem = baseRespository.findById(itemApiRequest.getId());
 
 
 
@@ -74,22 +76,34 @@ public class ItemApiService implements CRUDInterface<ItemApiRequest, ItemApiResp
                     return item;
                 }
             )
-                .map(Item -> itemRepository.save(Item))
-                .map(updatedItem -> response(updatedItem))
+                .map(Item -> baseRespository.save(Item))
+                .map(updatedItem -> Header.OK(response(updatedItem)))
                 .orElseGet(() -> Header.ERROR("데이터 없음"));
     }
 
     @Override
+    public Header<List<ItemApiResponse>> search(Pageable pageable) {
+        Page<Item> pages = baseRespository.findAll(pageable);
+
+        List<ItemApiResponse> itemApiResponseList = pages.stream()
+                .map(item -> response(item))
+                .collect(Collectors.toList());
+
+
+        return Header.OK(itemApiResponseList);
+    }
+
+    @Override
     public Header delete(Long id) {
-        return itemRepository.findById(id)
+        return baseRespository.findById(id)
                 .map(item -> {
-                    itemRepository.delete(item);
+                   baseRespository.delete(item);
                     return Header.OK();})
                 .orElseGet(() -> Header.ERROR("데이터 없음"));
     }
 
 
-    public Header<ItemApiResponse> response(Item item) {
+    public ItemApiResponse response(Item item) {
 
         ItemApiResponse body = ItemApiResponse.builder()
                 .id(item.getId())
@@ -104,6 +118,6 @@ public class ItemApiService implements CRUDInterface<ItemApiRequest, ItemApiResp
                 .partnerId(item.getPartner().getId())
                 .build();
 
-        return Header.OK(body);
+        return body;
     }
 }
