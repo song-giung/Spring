@@ -4,12 +4,34 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <filter>
+    <filter-name>myFilter</filter-name>
+    <filter-class>me.rldnd.Myfilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>myFilter</filter-name>
+    <servlet-name>hello</servlet-name>
+  </filter-mapping>
+
+  <listener>
+    <listener-class>me.rldnd.MyListener</listener-class>
+  </listener>
+
+
+
   <servlet>
     <servlet-name>hello</servlet-name>
     <servlet-class>me.rldnd.HelloServlet</servlet-class>
   </servlet>
+
   <servlet-mapping>
     <servlet-name>hello</servlet-name>
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
+  
+
+
+
 </web-app>
