@@ -34,6 +34,15 @@
       <version>4.0.1</version>
       <scope>provided</scope>
     </dependency>
+    <!-- add spring framework for using spring ioc-->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>5.2.4.RELEASE</version>
+    </dependency>
+
+
 
   </dependencies>
 

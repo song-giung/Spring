@@ -5,6 +5,17 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
+  <!-- application context java config-->
+  <context-param>
+    <param-name>contextClass</param-name>
+    <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>me.rldnd.AppConfig</param-value>
+  </context-param>
+
   <filter>
     <filter-name>myFilter</filter-name>
     <filter-class>me.rldnd.Myfilter</filter-class>
@@ -15,8 +26,13 @@
     <servlet-name>hello</servlet-name>
   </filter-mapping>
 
-  <listener>
+<!--  <listener>
     <listener-class>me.rldnd.MyListener</listener-class>
+  </listener>-->
+
+  <!--Spring application context(ioc) 사용을 위한 리스너 등록 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
 
 
