@@ -9,7 +9,8 @@
 - - -  
 ## Spring MVC
 - [Spring Boot 의 MVC 설정](https://github.com/rldnddl87/Spring/tree/master/spring-mvc/mvc1)
-- [Spring MVC](https://github.com/rldnddl87/Spring/tree/master/spring-mvc/basicservlet) 
+- [Spring MVC 기본 설정](https://github.com/rldnddl87/Spring/tree/master/spring-mvc/basicservlet) 
+- [Spring MVC ]
 - - -
 ## Side Project
 - [file-name-converter](https://github.com/rldnddl87/Spring/tree/master/file-name-converter) : 파일 이름 변환기
