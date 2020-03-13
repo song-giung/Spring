@@ -1,10 +1,7 @@
 package me.rldnd.demobootmvc;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class SampleController {
@@ -24,4 +21,15 @@ public class SampleController {
     }
 
 
+    @GetMapping("/message")
+    @ResponseBody //@RestController사용시는 생략 가능하다.
+    public String message(@RequestBody String message) {
+        return message;
+    }
+
+    @GetMapping("/jsonMessage")
+    @ResponseBody
+    public Person jsonMassage(@RequestBody Person person) {
+        return person;
+    }
 }

@@ -3,10 +3,12 @@ package me.rldnd.demobootmvc;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.CacheControl;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Configuration
@@ -23,4 +25,18 @@ public class WebConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/mobile/", "file:/Users") //클래스 패스와 파일시스템경로등 여러개를 설정할 수 있다.
                 .setCacheControl(CacheControl.maxAge(10, TimeUnit.MINUTES));
     }
+
+    //Http message converter configure
+
+/*    @Override //사용시 디폴트 컨버터 무효화 등록된것만 작동
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+
+    }*/
+
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+
+    }
+
+    //의존성 추가로 컨버터를 추가하는방법을 가장 추천함.
 }
