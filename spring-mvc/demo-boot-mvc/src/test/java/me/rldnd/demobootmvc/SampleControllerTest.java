@@ -1,6 +1,7 @@
 package me.rldnd.demobootmvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -9,10 +10,14 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.oxm.Marshaller;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.regex.Matcher;
+
+import javax.xml.transform.Result;
+import javax.xml.transform.stream.StreamResult;
+import java.io.StringWriter;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -31,6 +36,9 @@ class SampleControllerTest {
 
     @Autowired
     ObjectMapper objectMapper;
+
+    @Autowired
+    Marshaller marshaller;
 
     @Test
     void hello() throws Exception {
@@ -86,6 +94,32 @@ class SampleControllerTest {
                 .accept(MediaType.APPLICATION_JSON)
                 .content(jsonString))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value("1"))
+                .andExpect(jsonPath("$.name").value("rldnd"));
     }
+
+    @Test
+    void xmlMessage() throws Exception {
+        Person person = new Person();
+        person.setName("rldnd");
+        person.setId(1l);
+
+        StringWriter writer = new StringWriter();
+        Result result = new StreamResult(writer);
+        marshaller.marshal(person, result);
+
+        String xmlString = writer.toString();
+
+
+        this.mockMvc.perform(get("/jsonMessage")
+                .contentType(MediaType.APPLICATION_XML)
+                .accept(MediaType.APPLICATION_XML)
+                .content(xmlString))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(xpath("person/name").string("rldnd"))
+                .andExpect(xpath("person/id").string("1"));
+    }
+
 }
