@@ -21,4 +21,29 @@ public class SampleController {
     public String helloPost() {
         return "hello";
     }
+
+
+    @GetMapping("/events")
+    @ResponseBody
+    public String getEvents() {
+        return "events";
+    }
+
+    @GetMapping("/events/{id}")
+    @ResponseBody
+    public String getEventsWithId(@PathVariable("id") int id) {
+        return "events " + id;
+    }
+
+    @PostMapping(value = "/events", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String createEventsWithHeader() {
+        return "events";
+    }
+
+    @DeleteMapping("/events/{id}")
+    @ResponseBody
+    public String deleteAnEvent(@PathVariable("id") int id) {
+        return "deleted " + id;
+    }
 }

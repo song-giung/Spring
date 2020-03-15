@@ -25,7 +25,7 @@ class SampleControllerTest {
     MockMvc mockMvc;
 
     @Test
-    void getTest() throws Exception{
+    void getTest() throws Exception {
         this.mockMvc.perform(get("/hello"))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -34,7 +34,49 @@ class SampleControllerTest {
 
     }
 
+    @Test
+    void getEvents() throws Exception {
+        this.mockMvc.perform(get("/events"))
+                .andExpect(status().isOk());
+    }
 
+    @Test
+    void getEventWithId() throws Exception {
+        this.mockMvc.perform(get("/events/1"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("events 1"));
 
+        this.mockMvc.perform(get("/events/2"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("events 2"));
+
+        this.mockMvc.perform(get("/events/3"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("events 3"));
+    }
+
+    @Test
+    void createEventWithHeader() throws Exception {
+        this.mockMvc.perform(
+                post("/events")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void deleteAnEvent() throws Exception {
+        this.mockMvc.perform(delete("/events/1"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("deleted 1"));
+
+        this.mockMvc.perform(delete("/events/2"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("deleted 2"));
+
+        this.mockMvc.perform(delete("/events/3"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("deleted 3"));
+    }
 
 }
