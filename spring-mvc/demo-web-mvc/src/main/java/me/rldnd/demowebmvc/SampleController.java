@@ -10,7 +10,7 @@ import java.awt.*;
 @Controller
 public class SampleController {
 
-    @GetMapping(value = "hello")
+    @GetHelloMapping
     @ResponseBody
     public String hello() {
         return "hello";
