@@ -3,6 +3,7 @@ package me.rldnd.demowebmvc;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,7 +21,7 @@ public class SampleController {
 
     @PostMapping("/events")
     @ResponseBody
-    public Event getEvents(@Valid @ModelAttribute Event event, BindingResult bindingResult) {
+    public Event getEvents(@Validated(Event.ValidateLimit.class) @ModelAttribute Event event, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             bindingResult.getAllErrors().forEach(c -> System.out.println(c.toString()));
         }
