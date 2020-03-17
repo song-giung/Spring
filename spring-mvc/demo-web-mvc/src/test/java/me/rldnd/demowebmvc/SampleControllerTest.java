@@ -24,18 +24,14 @@ class SampleControllerTest {
 
     @Test
     void getEvents() throws Exception {
-        this.mockMvc.perform(get("/events/1"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("id").value(1));
-    }
-
-    @Test
-    void getEventsWithMatrixVariable() throws Exception {
-        this.mockMvc.perform(get("/events/1;name=rldnd"))
+        this.mockMvc.perform(get("/events/1")
+                .param("name", "loveSpring"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id").value(1))
-                .andExpect(jsonPath("name").value("rldnd"));
+                //.andExpect(jsonPath("name").value("rldnd"));
+                .andExpect(jsonPath("name").value("loveSpring"));
     }
+
+
 }
