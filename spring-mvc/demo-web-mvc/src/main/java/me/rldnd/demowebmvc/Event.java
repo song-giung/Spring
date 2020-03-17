@@ -14,14 +14,13 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 public class Event {
 
-    interface ValidateLimit{}
-    interface ValidateName{}
 
-    @NotBlank(groups = ValidateName.class)
+
     private Integer id;
 
+    @NotBlank
     private String name;
 
-    @Min(value = 0, groups = ValidateLimit.class)
+    @Min(0)
     private Integer limit;
 }
