@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.Min;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -15,5 +17,6 @@ public class Event {
 
     private String name;
 
+    @Min(0)
     private Integer limit;
 }
