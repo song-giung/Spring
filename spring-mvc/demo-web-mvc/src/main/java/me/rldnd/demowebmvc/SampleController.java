@@ -3,8 +3,10 @@ package me.rldnd.demowebmvc;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.http.HttpSession;
@@ -13,30 +15,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@SessionAttributes("event") //배열 형식{} 으로 여러 값을 설정할 수 있고 Model의Attribute에 설정한 이름의 값이 담긴다면 자동으로 세션에도 담긴다.
+@SessionAttributes("event")
 public class SampleController {
 
-    @GetMapping("/events/form")
-    public String eventsForm(Model model, HttpSession httpSession) {
-        Event newEvent = new Event();
-        newEvent.setLimit(50);
-        model.addAttribute("event", newEvent);
-        httpSession.setAttribute("event1", newEvent);
-        return "/events/form";
+    @GetMapping("/events/form/name")
+    public String eventsFormName(Model model) {
+        model.addAttribute("event", new Event());
+        return "/events/form-name";
     }
 
-    @PostMapping("/events")
-    public String createEvents(@Valid @ModelAttribute Event event, BindingResult bindingResult, SessionStatus sessionStatus) {
+    @PostMapping("/events/form/name")
+    public String eventsFormNameSubmit(@Valid @ModelAttribute Event event,
+                                       BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-           return "/events/form";
+            return "/events/form-name";
         }
+        return "redirect:/events/form/limit";
+    }
 
-        List<Event> eventList = new ArrayList<>();
-        eventList.add(event);
-        //db save
+
+    @GetMapping("/events/form/limit")
+    public String eventsFormLimit(@ModelAttribute Event event, Model model) {
+        model.addAttribute("event", event);
+        return "/events/form-limit";
+    }
+
+    @PostMapping("/events/form/limit")
+    public String eventsFormLimitSubmit(@Valid @ModelAttribute Event event,
+                                        BindingResult bindingResult,
+                                        SessionStatus sessionStatus) {
+        if (bindingResult.hasErrors()) {
+            return "/events/form-limit";
+        }
         sessionStatus.setComplete();
         return "redirect:/events/lists";
     }
+
 
     @GetMapping("/events/lists")
     public String getEvents(Model model) {
