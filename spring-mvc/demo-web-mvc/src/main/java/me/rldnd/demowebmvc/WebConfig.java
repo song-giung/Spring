@@ -1,6 +1,7 @@
 package me.rldnd.demowebmvc;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.util.UrlPathHelper;
@@ -13,5 +14,10 @@ public class WebConfig implements WebMvcConfigurer {
         UrlPathHelper helper = new UrlPathHelper();
         helper.setRemoveSemicolonContent(false);
         configurer.setUrlPathHelper(helper);
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new VisitTimeInterceptor());
     }
 }
