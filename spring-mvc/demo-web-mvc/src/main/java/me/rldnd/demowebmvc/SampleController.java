@@ -49,31 +49,26 @@ public class SampleController {
         }
         sessionStatus.setComplete();
 
-        attributes.addAttribute("name", event.getName());
-        attributes.addAttribute("limit", event.getLimit());
+        attributes.addFlashAttribute("event", event); //Model에 저장된다.
 
         return "redirect:/events/lists";
     }
 
 
     @GetMapping("/events/lists")
-    public String getEvents(@RequestParam String name,
-                            @RequestParam Integer limit,
-                            Model model,
+    public String getEvents(Model model,
                             @SessionAttribute LocalDateTime visitTime) {
         System.out.println(visitTime);
 
-        Event newEvent = new Event();
-        newEvent.setName(name);
-        newEvent.setLimit(limit);
+        Event event = (Event) model.getAttribute("event");
 
-        Event event = new Event();
-        event.setName("spring");
-        event.setLimit(50);
+        Event springevent = new Event();
+        springevent.setName("spring");
+        springevent.setLimit(50);
 
         List<Event> eventList = new ArrayList<>();
         eventList.add(event);
-        eventList.add(newEvent);
+        eventList.add(springevent);
 
         model.addAttribute(eventList);
 
