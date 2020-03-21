@@ -26,6 +26,9 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+    // https://mvnrepository.com/artifact/org.apache.tika/tika-core
+    compile group: 'org.apache.tika', name: 'tika-core', version: '1.24'
+
 }
 
 test {
