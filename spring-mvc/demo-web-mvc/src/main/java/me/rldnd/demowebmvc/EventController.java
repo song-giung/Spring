@@ -11,11 +11,22 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
 @SessionAttributes("event")
 public class EventController {
+
+    @ModelAttribute
+    public void categories(Model model) {
+        model.addAttribute("categories", Arrays.asList("study", "seminar", "hobby", "social"));
+    }
+
+/*    @ModelAttribute("categories")
+    public List<String> categories(Model model) {
+        return Arrays.asList("study", "seminar", "hobby", "social");
+    }*/
 
     @GetMapping("/events/form/name")
     public String eventsFormName(Model model) {
