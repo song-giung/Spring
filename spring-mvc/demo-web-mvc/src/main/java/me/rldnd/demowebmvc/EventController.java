@@ -19,6 +19,12 @@ import java.util.List;
 @SessionAttributes("event")
 public class EventController {
 
+    @ExceptionHandler
+    public String eventErrorHandler(EventException exception, Model model) {
+        model.addAttribute("message", "event error");
+        return "error";
+    }
+
     @InitBinder
     public void initEventBinder(WebDataBinder webDataBinder) {
         webDataBinder.setDisallowedFields("id");
@@ -36,8 +42,11 @@ public class EventController {
 
     @GetMapping("/events/form/name")
     public String eventsFormName(Model model) {
-        model.addAttribute("event", new Event());
-        return "/events/form-name";
+
+        throw new EventException();
+
+        /*model.addAttribute("event", new Event());
+        return "/events/form-name";*/
     }
 
     @PostMapping("/events/form/name")
