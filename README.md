@@ -36,8 +36,7 @@
 		7. [@SessionAttributes / SessionStatus / @ModelAttribute의 Session 데이터 바인딩](https://github.com/rldnddl87/Spring/commit/b8083f080584a802c326c8d21138f62c111637b5#diff-671cb6602c95d6bf30d96a92cbfdff1f)
 		8. [멀티 폼 서브밋](https://github.com/rldnddl87/Spring/commit/5dc20bddd3e8d42d549d17f6dea829ea09f41001#diff-671cb6602c95d6bf30d96a92cbfdff1f)
 		9. [@SessionAttribute](https://github.com/rldnddl87/Spring/commit/55bc6561ec8e1a539811299ab5ff079c52ca7094#diff-671cb6602c95d6bf30d96a92cbfdff1f)
-		10. [RedirectAttributes](https://github.com/rldnddl87/Spring/commit/
-		a7ae14337246891edabb22245270ea6f4183b921#diff-671cb6602c95d6bf30d96a92cbfdff1f)
+		10. [RedirectAttributes](https://github.com/rldnddl87/Spring/commit/a7ae14337246891edabb22245270ea6f4183b921#diff-671cb6602c95d6bf30d96a92cbfdff1f)
 		11. [FlashAttributes](https://github.com/rldnddl87/Spring/commit/2d84763f2871222c5f96bef33c57431fc9086ec9#diff-671cb6602c95d6bf30d96a92cbfdff1f)
 		12. [MultipartFile](https://github.com/rldnddl87/Spring/commit/3411acd391d0d2254859fcdadf1c9ddadcafbbac#diff-671cb6602c95d6bf30d96a92cbfdff1f)
 		13. [ResponseEntity / 파일 다운로드](https://github.com/rldnddl87/Spring/commit/edb58ab56b22fd7e525ccfe3c7ba826c6be8fb3c#diff-671cb6602c95d6bf30d96a92cbfdff1f)
