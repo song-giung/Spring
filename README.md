@@ -9,8 +9,8 @@
 - - -  
 ## Spring MVC
 - [Spring Boot 의 MVC 설정](https://github.com/rldnddl87/Spring/tree/master/spring-mvc/mvc1)
-- [Spring Boot환경에서 JSP사용하기](https://github.com/rldnddl87/Spring/tree/master/spring-mvc/demo-jsp)
 - [Spring MVC 기본 설정](https://github.com/rldnddl87/Spring/tree/master/spring-mvc/basicservlet) 
+- [Spring Boot환경에서 JSP사용하기](https://github.com/rldnddl87/Spring/tree/master/spring-mvc/demo-jsp)
 - [Spring MVC 기타 설정](https://github.com/rldnddl87/Spring/tree/master/spring-mvc/demo-boot-mvc)
 	1. [MVC환경에서 Formatter 사용](https://github.com/rldnddl87/Spring/commit/4fb05b1dbae59dfdb6d38b653ca45eec14ff586e#diff-a2d42c4e0ae8b26c60004ee29804b68a)
 	2. [Boot환경에서 Formatter 사용](https://github.com/rldnddl87/Spring/commit/a4683017bfd629616e8532378b7561b998f3cd3b#diff-a2d42c4e0ae8b26c60004ee29804b68a)
