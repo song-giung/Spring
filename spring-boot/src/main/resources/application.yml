@@ -1,4 +1,2 @@
-holoman:
-  name: rldnd
-  howLong: 50
-
+server:
+  port: 0
