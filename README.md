@@ -47,7 +47,15 @@
 		18. [@InitBinder](https://github.com/rldnddl87/Spring/commit/3a9bbfe550f6227e7ab4919451312ec6b68eea90#diff-671cb6602c95d6bf30d96a92cbfdff1f)
 		19. [@ExceptionHandler](https://github.com/rldnddl87/Spring/commit/94bd6a8ebe5c7034f71c07741579f1f75e29edc7#diff-671cb6602c95d6bf30d96a92cbfdff1f)
 		20. [@ControllerAdvice](https://github.com/rldnddl87/Spring/commit/9f25779aa7d6d24edc6d9ba9babc0fd3de57bd15#diff-671cb6602c95d6bf30d96a92cbfdff1f)
-
+- - -
+## Spring Boot
+- Spring Boot Auto-Configuration
+	1. [Create](https://github.com/rldnddl87/Spring/commit/16cddbd13bd718edccabbde7f7891e7985ec719c)
+	2. [Apply](https://github.com/rldnddl87/Spring/commit/7eafd149dff9d88dbab37ac4a27451ec65a90c81)
+- 내장 웹 서버의 이해
+	1. [서블릿 컨테이너 변경하기(tomcat -> undertow)](https://github.com/rldnddl87/Spring/commit/73b7130b29bb564583972ab992860be709898bd9)
+	2. [https 적용](https://github.com/rldnddl87/Spring/commit/2aa57f9a411e121bc15507cd516c22c0819b5376)
+	3. [http2 적용](https://github.com/rldnddl87/Spring/commit/5a8b6d6897be0fa3375835e621d01632ce01739a)
 
 - - -
 ## Side Project
