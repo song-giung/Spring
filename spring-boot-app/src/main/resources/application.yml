@@ -1,0 +1,4 @@
+giung:
+  name:
+  city: seoul
+  fullName: ${giung.name} song
