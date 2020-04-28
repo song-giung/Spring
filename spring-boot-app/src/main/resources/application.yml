@@ -1,4 +1,8 @@
 giung:
-  name:
+  name: giung
   city: seoul
   fullName: ${giung.name} song
+
+spring:
+  profiles:
+    active: prod

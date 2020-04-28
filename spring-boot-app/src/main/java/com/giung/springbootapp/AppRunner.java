@@ -9,13 +9,14 @@ import org.springframework.stereotype.Component;
 public class AppRunner implements ApplicationRunner {
 
     @Autowired
-    giungProperties giungProperties;
+    String hello;
+
+    @Autowired
+    giungProperties properties;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println(giungProperties.getName());
-        System.out.println(giungProperties.getFullName());
-        System.out.println(giungProperties.getCity());
-
+        System.out.println(hello);
+        System.out.println(properties.getName());
     }
 }
