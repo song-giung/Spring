@@ -6,3 +6,7 @@ giung:
 spring:
   profiles:
     active: prod
+
+logging:
+  file:
+    path: logs
