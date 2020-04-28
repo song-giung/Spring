@@ -56,6 +56,7 @@
 	1. [서블릿 컨테이너 변경하기(tomcat -> undertow)](https://github.com/rldnddl87/Spring/commit/73b7130b29bb564583972ab992860be709898bd9)
 	2. [https 적용](https://github.com/rldnddl87/Spring/commit/2aa57f9a411e121bc15507cd516c22c0819b5376)
 	3. [http2 적용](https://github.com/rldnddl87/Spring/commit/5a8b6d6897be0fa3375835e621d01632ce01739a)
+- [@ConfigurationProperties](https://github.com/rldnddl87/Spring/commit/00f14283508b77315806a0e1d79adf0ea30c6100)
 
 - - -
 ## Side Project
