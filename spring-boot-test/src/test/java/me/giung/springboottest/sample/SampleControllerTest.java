@@ -6,17 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import org.springframework.test.web.reactive.server.WebTestClient;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -24,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class SampleControllerTest {
 
     @Autowired
-    TestRestTemplate testRestTemplate;
+    WebTestClient webTestClient;
 
     @MockBean
     SampleService mockSampleService;
@@ -33,7 +25,8 @@ class SampleControllerTest {
     void hello() throws Exception{
         when(mockSampleService.getName()).thenReturn("whiteship");
 
-        String result = testRestTemplate.getForObject("/hello", String.class);
-        assertThat(result).isEqualTo("hello whiteship");
+        webTestClient.get().uri("/hello").exchange()
+                .expectStatus()
+                .isOk().expectBody(String.class).isEqualTo("hello whiteship");
     }
 }
