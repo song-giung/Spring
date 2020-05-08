@@ -3,3 +3,12 @@ spring:
     url: jdbc:postgresql://localhost:5432/springboot
     username: giung
     password: pass
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    generate-ddl: false
+    show-sql: true
+
+server:
+  port: 8088
