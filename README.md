@@ -57,6 +57,31 @@
 	2. [https 적용](https://github.com/rldnddl87/Spring/commit/2aa57f9a411e121bc15507cd516c22c0819b5376)
 	3. [http2 적용](https://github.com/rldnddl87/Spring/commit/5a8b6d6897be0fa3375835e621d01632ce01739a)
 - [@ConfigurationProperties](https://github.com/rldnddl87/Spring/commit/00f14283508b77315806a0e1d79adf0ea30c6100)
+- [Profile](https://github.com/rldnddl87/Spring/commit/d3b39cf768b0a110909c89a2492e068016089b9e)
+- [로깅](https://github.com/rldnddl87/Spring/commit/e1fd8a01a4cab2713dd63cd35b16480ae797c82b)
+- 테스트
+	1. [MockMvc](https://github.com/rldnddl87/Spring/commit/9ae39f0eea0d7df07dcaea96fec6fdd3d72e4c8b)
+	2. [MockBean](https://github.com/rldnddl87/Spring/commit/490714aacd1cf55be5e2f56f4b9af99e37427389)
+	3. [WebTestClient](https://github.com/rldnddl87/Spring/commit/62a3c10b189073386037b5ef915c7fde3414dfe9)
+- Spring MVC
+  - [HttpMessageConverter](https://github.com/rldnddl87/Spring/commit/8ac604953aaabc309e7c0f2ac7cf535c8fb39183)
+  - [HttpMessageConverter - xml](https://github.com/rldnddl87/Spring/commit/4849dca4e9c1217d855f3f36240e5a98474dfb14)
+  - [정적리소스](https://github.com/rldnddl87/Spring/commit/642e3a8c09e2afe8dc91a82d9f818045ea888b28)
+  - [WebJar지원](https://github.com/rldnddl87/Spring/commit/19ddf6dc7aede898bdb5bae394fd49b265ae881e)
+  - [Thymeleaf](https://github.com/rldnddl87/Spring/commit/2fe3b2ace645eec8b8418b15b74660cacf276a24)
+  - [HtmlUnit을 이용한 html 테스트](https://github.com/rldnddl87/Spring/commit/f4f41e4098ff672aac7e9b42b2cac6c7ee050599)
+  - [예외처리](https://github.com/rldnddl87/Spring/commit/a13dbeb3cd784dfb3b6d666672f9b974aa30b589)   
+  - [HATEOAS 맛보기](https://github.com/rldnddl87/Spring/commit/571823342d80f0a8746608958a37f2bc2d381c82)
+  - [CORS설정](https://github.com/rldnddl87/Spring/commit/e77ca5d07844dfff5c572103d68b0968c31beaca)
+- Spring Data
+  - [H2](https://github.com/rldnddl87/Spring/commit/eb158fcbfa61b3627052255bf03978b7aa2e8e86)
+  - [PostgreSQL](https://github.com/rldnddl87/Spring/commit/9fb0d33fdc377dc07c9292848912a4ebe0750ba6)
+  - [Entity/Repository/슬라이스 테스트](https://github.com/rldnddl87/Spring/commit/dd016aa590c23281c931066ad8f1cb0f7c635052)
+  - [DB 초기화](https://github.com/rldnddl87/Spring/commit/df009c52d66dd19680614cecdf16293eac97c20a)
+  - [DB 형상관리/마이그레이션툴 flyway 맛보기](https://github.com/rldnddl87/Spring/commit/02e167a1a3ff696da17c9cb3dd99eee1c3b85b04)
+  - [Redis](https://github.com/rldnddl87/Spring/commit/8a1efb23f217ee7d72c1ea8bce84dc97150ae83e)
+  - [MongDB](https://github.com/rldnddl87/Spring/commit/ac949471311b64c269208d072e57c31f26896342)
+  - [Neo4j](https://github.com/rldnddl87/Spring/commit/f349b9ba6d5018c2525e1f112385ad455600e4f5)
 
 - - -
 ## Side Project
