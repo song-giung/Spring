@@ -82,6 +82,7 @@
   - [Redis](https://github.com/rldnddl87/Spring/commit/8a1efb23f217ee7d72c1ea8bce84dc97150ae83e)
   - [MongDB](https://github.com/rldnddl87/Spring/commit/ac949471311b64c269208d072e57c31f26896342)
   - [Neo4j](https://github.com/rldnddl87/Spring/commit/f349b9ba6d5018c2525e1f112385ad455600e4f5)
+- [Spring Security 맛보기](https://github.com/rldnddl87/Spring/commit/df72e293196259f4508f1fa6e514aaae9bada7ac)
 
 - - -
 ## Side Project
